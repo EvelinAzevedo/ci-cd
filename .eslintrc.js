@@ -10,3 +10,8 @@ module.exports = {
     es2020: true,
   },
   rules: {
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'no-console': 'off',
+  },
+};
