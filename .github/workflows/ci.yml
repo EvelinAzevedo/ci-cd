@@ -1,0 +1,24 @@
+name: CI # Nome da pipeline
+
+on: #regras
+  pull_request: # Regra: quando for feito uma Pull Request
+    branches: # Em qual branches?
+      - develop
+
+jobs: # Trabalhos a serem executados 
+  test: # Trabalho: test
+    runs-on: ubuntu-latest # Máquina: Linux ubuntu
+      steps: # Passos a serem executados
+        - name: Checkout do código
+          uses: actions/Checkout@v4
+
+          - name: Instalar o Node
+            uses: actions/setup-node@v4
+            witch:
+              node-version: 22
+
+              - name: Instalar dependências
+                run: npm install
+
+                - name: Rodar os testes
+                  run: npm test
