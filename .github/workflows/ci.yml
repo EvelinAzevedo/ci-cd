@@ -1,9 +1,19 @@
 name: CI # Nome da pipeline
 
-on: #regras
+on: #regrasç
   pull_request: # Regra: quando for feito uma Pull Request
     branches: # Em qual branches?
       - develop
+    paths: 
+ -'src/**'
+ -'testes/**'
+ -'package.json'
+ -'package-lock.json'
+ -'tsconfig.json'
+
+env:
+  PORT: ${{ vaes.PORT}}
+  API_TOKEN: ${{ secrets.API_TOKEN}}
 
 jobs: # Trabalhos a serem executados 
   test: # Trabalho: test
@@ -14,7 +24,7 @@ jobs: # Trabalhos a serem executados
 
           - name: Instalar o Node
             uses: actions/setup-node@v4
-            witch:
+            with:
               node-version: 22
 
               - name: Instalar dependências
@@ -28,7 +38,7 @@ build:
   needs: test
   steps:
     - name: Checkout do código
-        uses: actions/Checkout@v4
+      uses: actions/Checkout@v4
 
     - name: Instalar o Node
        uses: actions/setup-node@v4
@@ -39,4 +49,4 @@ build:
         run:npm install
 
     - name: Rodar build
-       run: npm run build
+        run: npm run build
