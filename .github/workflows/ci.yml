@@ -10,6 +10,9 @@ on: #regrasç
  -'package.json'
  -'package-lock.json'
  -'tsconfig.json'
+ 
+  paths-ignore: #bv gt vbghfvghdgbv grtc
+    -'README.md'
 
 env:
   PORT: ${{ vaes.PORT}}
